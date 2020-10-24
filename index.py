@@ -42,10 +42,8 @@ event = {
   },
 }
 
-service.events().insert(calendarId=calendar_id, conferenceDataVersion=1, body=event).execute()
+result = service.events().insert(calendarId=calendar_id, conferenceDataVersion=1, body=event).execute()
 
-result = service.events().list(calendarId=calendar_id).execute()
-no_of_enteries = len(result['items'])
-link = result['items'][no_of_enteries - 1]['hangoutLink']
+link = result['hangoutLink']
 
 print(link)
